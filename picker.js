@@ -1,5 +1,5 @@
 let num = 1;
-let tag = document.getElementById('asd');
+let itemTag = document.getElementById('itemList');
 let inputTextTag = document.getElementById("myText");	
 let resultTag = document.getElementById('texts');
 let list = [];
@@ -19,14 +19,11 @@ function myFunction() {
 		let text = document.createTextNode(setText(inputTextTag.value, num));
 		el.appendChild(text);
 
-		tag.appendChild(el)
+		itemTag.appendChild(el)
 
 		num++;
 
 		list.push(inputTextTag.value);
-
-		console.log('list', list);
-
 
 		inputTextTag.value = '';
 	} else {
@@ -36,8 +33,8 @@ function myFunction() {
 }
 
 function remove() {
-	if (tag.hasChildNodes) {
-		tag.removeChild(tag.lastElementChild);
+	if (itemTag.hasChildNodes) {
+		itemTag.removeChild(itemTag.lastElementChild);
 		list.unshift();
 		num--;
 	} else {
@@ -46,7 +43,7 @@ function remove() {
 }
 
 function setText(strText, num) {
-	return strText + " " + num
+	return `${strText}`
 }
 
 function shuffleText() {
